@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   title: "SS Solar Energia | Projetos de Energia Solar Premium",
   description: "Transforme a luz do sol em economia para sua casa ou empresa. Projetos completos de energia solar com instalação e homologação.",
   keywords: ["energia solar", "painel solar", "economia de energia", "ss solar energia", "instalação solar"],
+  icons: {
+    icon: "/images/logo.jpeg",
+  },
 };
 
 export default function RootLayout({
@@ -28,8 +31,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${inter.variable} ${poppins.variable} dark antialiased`}>
-      <body className="min-h-screen flex flex-col font-sans overflow-x-hidden">
+    <html lang="pt-BR" className={`${inter.variable} ${poppins.variable} dark antialiased`} suppressHydrationWarning>
+      <body className="min-h-screen flex flex-col font-sans overflow-x-hidden" suppressHydrationWarning>
         <Navbar />
         <main className="flex-1">
           {children}
