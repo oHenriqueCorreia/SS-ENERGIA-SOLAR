@@ -49,7 +49,7 @@ export function TestimonialsSection() {
 
   return (
     <section className="py-24 bg-card/10 border-y border-white/5 relative overflow-hidden">
-      <div className="absolute top-1/2 left-0 w-64 h-64 bg-primary/5 rounded-full blur-[100px] pointer-events-none opacity-50" />
+      {/* Remove intense background glows */}
       
       <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -102,11 +102,10 @@ export function TestimonialsSection() {
                         </p>
                         <div className="flex items-center gap-4">
                           <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20">
-                            <Image 
+                            <img 
                               src={testimonial.avatar} 
                               alt={testimonial.name}
-                              fill
-                              className="object-cover"
+                              className="w-full h-full object-cover"
                             />
                           </div>
                           <div>

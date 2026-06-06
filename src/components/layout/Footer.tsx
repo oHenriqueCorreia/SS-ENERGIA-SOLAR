@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Sun, MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone, Mail } from "lucide-react";
+import Image from "next/image";
 
 export function Footer() {
   return (
@@ -8,8 +9,8 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="space-y-6">
-            <Link href="/" className="flex items-center gap-2">
-              <Sun className="h-8 w-8 text-primary" />
+            <Link href="/" className="flex items-center gap-3">
+              <Image src="/images/logo.jpeg" alt="SS Solar" width={56} height={56} className="rounded-lg object-contain" />
               <span className="text-2xl font-heading font-bold tracking-tight">
                 SS <span className="text-primary">SOLAR</span>
               </span>
