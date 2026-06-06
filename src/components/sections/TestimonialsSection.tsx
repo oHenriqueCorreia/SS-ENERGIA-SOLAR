@@ -17,7 +17,7 @@ export function TestimonialsSection() {
       id: 1,
       name: "Carlos Eduardo",
       city: "Ribeirão Preto, SP",
-      avatar: "https://ui-avatars.com/api/?name=Carlos+Eduardo&background=0D8ABC&color=fff",
+      avatar: "https://api.dicebear.com/7.x/initials/svg?seed=CE&backgroundColor=0D8ABC&textColor=ffffff",
       text: "A instalação foi super rápida e o resultado já apareceu na primeira conta. Minha conta que era de R$ 850 caiu para a taxa mínima. Recomendo muito o trabalho da SS Solar.",
       rating: 5,
     },
@@ -25,7 +25,7 @@ export function TestimonialsSection() {
       id: 2,
       name: "Mariana Costa",
       city: "São Paulo, SP",
-      avatar: "https://ui-avatars.com/api/?name=Mariana+Costa&background=F59E0B&color=fff",
+      avatar: "https://api.dicebear.com/7.x/initials/svg?seed=MC&backgroundColor=F59E0B&textColor=ffffff",
       text: "Equipe extremamente profissional. Fizeram o projeto para a minha empresa e o retorno está sendo melhor que o esperado. O suporte pós-venda deles é excelente.",
       rating: 5,
     },
@@ -33,7 +33,7 @@ export function TestimonialsSection() {
       id: 3,
       name: "João Batista",
       city: "Campinas, SP",
-      avatar: "https://ui-avatars.com/api/?name=João+Batista&background=10B981&color=fff",
+      avatar: "https://api.dicebear.com/7.x/initials/svg?seed=JB&backgroundColor=10B981&textColor=ffffff",
       text: "Coloquei no meu sítio e acabou o problema de queda de energia. A equipe cuidou de toda a papelada com a CPFL, não tive dor de cabeça nenhuma.",
       rating: 5,
     },
@@ -41,7 +41,7 @@ export function TestimonialsSection() {
       id: 4,
       name: "Roberto Almeida",
       city: "Sorocaba, SP",
-      avatar: "https://ui-avatars.com/api/?name=Roberto+Almeida&background=6366F1&color=fff",
+      avatar: "https://api.dicebear.com/7.x/initials/svg?seed=RA&backgroundColor=6366F1&textColor=ffffff",
       text: "Pesquisei muito antes de fechar e a SS Solar me passou mais credibilidade com equipamentos de ponta. Hoje, 2 anos depois, vejo que fiz a melhor escolha.",
       rating: 5,
     },
@@ -49,7 +49,7 @@ export function TestimonialsSection() {
 
   return (
     <section className="py-24 bg-card/10 border-y border-white/5 relative overflow-hidden">
-      <div className="absolute top-1/2 left-0 w-64 h-64 bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-64 h-64 bg-primary/5 rounded-full blur-[100px] pointer-events-none opacity-50" />
       
       <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">

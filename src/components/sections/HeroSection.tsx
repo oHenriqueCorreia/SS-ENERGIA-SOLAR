@@ -8,8 +8,8 @@ export function HeroSection() {
   return (
     <section id="hero" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
       {/* Background Glows */}
-      <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-primary/10 rounded-full blur-[150px] pointer-events-none -translate-y-1/2 translate-x-1/3" />
-      <div className="absolute bottom-0 left-0 w-[50vw] h-[50vw] bg-primary/5 rounded-full blur-[120px] pointer-events-none translate-y-1/3 -translate-x-1/3" />
+      <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-primary/5 rounded-full blur-[150px] pointer-events-none -translate-y-1/2 translate-x-1/3 opacity-30" />
+      <div className="absolute bottom-0 left-0 w-[50vw] h-[50vw] bg-primary/5 rounded-full blur-[120px] pointer-events-none translate-y-1/3 -translate-x-1/3 opacity-30" />
 
       <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-20 w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
