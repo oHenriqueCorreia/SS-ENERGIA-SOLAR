@@ -61,24 +61,23 @@ export function AreasSection() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
             >
-              <Card className="overflow-hidden bg-card/40 border-white/5 group h-full cursor-pointer">
-                <div className="relative h-60 w-full overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent z-10" />
-                  <Image 
-                    src={area.image}
-                    alt={area.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute bottom-4 left-6 z-20">
-                    <h3 className="text-xl font-heading font-bold text-white group-hover:text-primary transition-colors">{area.title}</h3>
-                  </div>
-                </div>
-                <CardContent className="p-6">
-                  <p className="text-muted-foreground text-sm leading-relaxed">
+              <Card className="relative overflow-hidden group h-[320px] md:h-[400px] cursor-pointer border-white/10 shadow-lg flex flex-col justify-end rounded-2xl">
+                <Image 
+                  src={area.image}
+                  alt={area.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110 z-0"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent z-10 transition-opacity duration-300 group-hover:opacity-90" />
+                
+                <div className="relative z-20 p-6 md:p-8 flex flex-col justify-end h-full mt-auto">
+                  <h3 className="text-2xl font-heading font-bold text-white mb-3 group-hover:text-primary transition-colors">
+                    {area.title}
+                  </h3>
+                  <p className="text-gray-300 text-sm md:text-base leading-relaxed opacity-90 group-hover:opacity-100 transition-opacity font-medium">
                     {area.description}
                   </p>
-                </CardContent>
+                </div>
               </Card>
             </motion.div>
           ))}
