@@ -12,7 +12,7 @@ export function WhatsAppButton() {
       className="fixed bottom-6 right-6 z-50"
     >
       <Link
-        href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20fazer%20um%20orçamento%20de%20energia%20solar."
+        href="https://wa.me/5548996136269?text=Olá,%20gostaria%20de%20fazer%20um%20orçamento%20de%20energia%20solar."
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-lg shadow-[#25D366]/30 hover:scale-110 transition-transform duration-300 group relative"

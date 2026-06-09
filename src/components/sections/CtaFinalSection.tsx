@@ -29,7 +29,7 @@ export function CtaFinalSection() {
 
     // Envia para o WhatsApp
     const msg = `Olá! Gostaria de uma análise para energia solar.%0A%0A*Nome:* ${nome}%0A*Telefone:* ${telefone}%0A*Conta Média:* R$ ${consumo}%0A*Cidade:* ${cidade}%0A*Melhor Horário:* ${horario}`;
-    window.open(`https://wa.me/5511999999999?text=${msg}`, "_blank");
+    window.open(`https://wa.me/5548996136269?text=${msg}`, "_blank");
   };
 
   return (

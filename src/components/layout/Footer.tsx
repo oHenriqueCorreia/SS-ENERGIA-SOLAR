@@ -52,15 +52,15 @@ export function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="text-primary mt-0.5 shrink-0" size={18} />
-                <span className="text-slate-600 text-sm">Av. Principal, 1000 - Centro<br />São Paulo - SP</span>
+                <span className="text-slate-600 text-sm">Rodovia Dep. Paulino Búrigo, 10754,<br />Sala Comercial Vila Nova,<br />Içara/SC - CEP 88829-120</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="text-primary shrink-0" size={18} />
-                <span className="text-slate-600 text-sm">(11) 99999-9999</span>
+                <span className="text-slate-600 text-sm">48 9 9613 6269</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="text-primary shrink-0" size={18} />
-                <span className="text-slate-600 text-sm">contato@sssolar.com.br</span>
+                <span className="text-slate-600 text-sm">ss.energiarenovavel@gmail.com</span>
               </li>
             </ul>
           </div>
