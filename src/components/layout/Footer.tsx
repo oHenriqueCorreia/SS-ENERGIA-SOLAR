@@ -9,11 +9,8 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="space-y-6">
-            <Link href="/" className="flex items-center gap-3">
-              <Image src="/images/logo.jpeg" alt="SS Solar" width={56} height={56} className="rounded-lg object-contain" />
-              <span className="text-2xl font-heading font-bold tracking-tight">
-                SS <span className="text-primary">SOLAR</span>
-              </span>
+            <Link href="/" className="flex items-center">
+              <Image src="/images/logo.jpeg" alt="SS Solar" width={220} height={80} className="h-14 md:h-16 w-auto object-contain rounded-sm" />
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Transformando a luz do sol em economia e sustentabilidade para residências e empresas em todo o Brasil.

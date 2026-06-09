@@ -36,11 +36,8 @@ export function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3 group">
-          <Image src="/images/logo.jpeg" alt="SS Solar" width={44} height={44} className="rounded-lg object-contain group-hover:scale-105 transition-transform" />
-          <span className="text-xl font-heading font-bold tracking-tight">
-            SS <span className="text-primary">SOLAR</span>
-          </span>
+        <Link href="/" className="flex items-center group">
+          <Image src="/images/logo.jpeg" alt="SS Solar" width={180} height={60} className="h-12 md:h-14 w-auto object-contain rounded-sm group-hover:scale-105 transition-transform" priority />
         </Link>
 
         {/* Desktop Nav */}
