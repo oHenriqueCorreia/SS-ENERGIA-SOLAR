@@ -31,8 +31,8 @@ export function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/85 backdrop-blur-lg border-b border-white/5 py-4 shadow-sm shadow-black/20" : "bg-transparent py-6"
+      className={`fixed top-0 w-full z-50 transition-all duration-300 bg-white border-b border-gray-200 ${
+        scrolled ? "py-4 shadow-sm" : "py-6"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between">
@@ -46,7 +46,7 @@ export function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-muted-foreground hover:text-white transition-colors relative group"
+              className="text-sm font-medium text-slate-700 hover:text-primary transition-colors relative group"
             >
               {link.name}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -62,7 +62,7 @@ export function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden text-foreground hover:text-primary transition-colors"
+          className="md:hidden text-slate-800 hover:text-primary transition-colors"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -76,7 +76,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background/95 backdrop-blur-xl border-b border-white/10 overflow-hidden"
+            className="md:hidden bg-white border-b border-gray-200 overflow-hidden shadow-lg"
           >
             <div className="flex flex-col items-center py-6 gap-6">
               {navLinks.map((link) => (
@@ -84,7 +84,7 @@ export function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-base font-medium text-muted-foreground hover:text-primary"
+                  className="text-base font-medium text-slate-700 hover:text-primary"
                 >
                   {link.name}
                 </Link>
