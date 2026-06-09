@@ -7,27 +7,27 @@ export function PortfolioSection() {
   const projects = [
     {
       id: 1,
-      image: "/images/portfolio_1.png",
-      city: "São Paulo, SP",
+      image: "/images/proj_01.jpeg",
+      city: "Forquilinha - SC",
       power: "12.5 kWp",
-      type: "Residencial",
-      savings: "R$ 14.500/ano",
+      client: "Raymundo Marcomim",
+      savings: "R$ 37.109,00",
     },
     {
       id: 2,
-      image: "/images/portfolio_2.png",
-      city: "Campinas, SP",
+      image: "/images/proj_02.jpeg",
+      city: "Forquilinha - SC",
       power: "75.0 kWp",
-      type: "Comercial",
-      savings: "R$ 85.000/ano",
+      client: "Quiosque da Julia",
+      savings: "R$ 23.835,00",
     },
     {
       id: 3,
-      image: "/images/portfolio_3.png",
-      city: "Ribeirão Preto, SP",
-      power: "250.0 kWp",
-      type: "Industrial",
-      savings: "R$ 310.000/ano",
+      image: "/images/proj_03.jpeg",
+      city: "Içara - SC",
+      power: "806 kWh/mês",
+      client: "João Lucas",
+      savings: "R$ 8.052,85/ano",
     },
   ];
 
@@ -73,7 +73,7 @@ export function PortfolioSection() {
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute top-4 left-4 bg-background/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider text-primary border border-white/10">
-                    {project.type}
+                    {project.client}
                   </div>
                 </div>
                 

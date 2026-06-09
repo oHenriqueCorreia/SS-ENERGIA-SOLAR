@@ -18,7 +18,7 @@ export function AboutSection() {
           >
             <div className="absolute inset-0 bg-gradient-to-tr from-background/80 via-transparent to-transparent z-10" />
             <Image 
-              src="https://images.unsplash.com/photo-1542336391-ae2936d8efe4?q=80&w=2080" 
+              src="/images/equipe.jpeg" 
               alt="Equipe SS Solar Energia" 
               fill
               className="object-cover"

@@ -8,22 +8,22 @@ export function AreasSection() {
     {
       title: "Residências",
       description: "Reduza o custo de vida da sua família e valorize seu imóvel.",
-      image: "/images/residential.png",
+      image: "/images/seg_residencias.jpeg",
     },
     {
       title: "Empresas e Comércio",
       description: "Aumente a lucratividade do seu negócio cortando um dos maiores custos fixos.",
-      image: "/images/commercial.png",
+      image: "/images/seg_empresas.jpeg",
     },
     {
       title: "Indústrias",
       description: "Soluções em larga escala com alta potência para demandas intensivas.",
-      image: "/images/industrial.png",
+      image: "/images/seg_industrias.jpeg",
     },
     {
       title: "Propriedades Rurais",
       description: "Energia independente para agronegócio, irrigação e bombeamento.",
-      image: "/images/rural.png",
+      image: "/images/seg_rurais.jpeg",
     },
   ];
 
