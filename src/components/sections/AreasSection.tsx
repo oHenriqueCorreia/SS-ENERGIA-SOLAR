@@ -31,8 +31,8 @@ export function AreasSection() {
   return (
     <section className="py-24 bg-background relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="mb-16 md:flex justify-between items-end">
-          <div className="max-w-2xl">
+        <div className="mb-16 flex flex-col items-center text-center">
+          <div className="max-w-3xl">
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -75,12 +75,12 @@ export function AreasSection() {
                 {/* Degradê mais alto e suave para garantir leitura perfeita */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-90" />
                 
-                <div className="relative z-20 p-8 md:p-10 flex flex-col justify-end h-full mt-auto">
-                  <div className="transform transition-transform duration-500 group-hover:-translate-y-2">
+                <div className="relative z-20 p-8 md:p-10 flex flex-col justify-end items-center text-center h-full mt-auto">
+                  <div className="transform transition-transform duration-500 group-hover:-translate-y-2 flex flex-col items-center">
                     <h3 className="text-3xl md:text-4xl font-heading font-bold text-white mb-3">
                       {area.title}
                     </h3>
-                    <p className="text-gray-300 text-base md:text-lg leading-relaxed font-medium max-w-[90%]">
+                    <p className="text-gray-300 text-base md:text-lg leading-relaxed font-medium max-w-[95%] md:max-w-[85%]">
                       {area.description}
                     </p>
                   </div>
