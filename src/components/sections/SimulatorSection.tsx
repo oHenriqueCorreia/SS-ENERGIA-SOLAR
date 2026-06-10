@@ -12,13 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 
 const formSchema = z.object({
-  billValue: z.string().min(1, { message: "Digite o valor da sua conta." }).transform((val) => {
-    // Remove non-numeric chars except dot/comma
-    const num = val.replace(/[^0-9.,]/g, '').replace(',', '.');
-    return parseFloat(num);
-  }).refine((val) => !isNaN(val) && val >= 50, {
-    message: "O valor mínimo é R$ 50,00",
-  }),
+  billValue: z.string().min(1, { message: "Digite o valor da sua conta." }),
 });
 
 export function SimulatorSection() {
@@ -27,16 +21,20 @@ export function SimulatorSection() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      billValue: "" as unknown as number,
+      billValue: "",
     },
   });
 
-  function onSubmit(values: { billValue: number }) {
-    const value = values.billValue;
-    // Assuming 95% savings
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    const raw = values.billValue.replace(/[^0-9.,]/g, '').replace(',', '.');
+    const value = parseFloat(raw);
+    if (isNaN(value) || value < 50) {
+      form.setError("billValue", { message: "O valor mínimo é R$ 50,00" });
+      return;
+    }
     const monthlySavings = value * 0.95;
     const yearlySavings = monthlySavings * 12;
-    const lifetimeSavings = yearlySavings * 25; // 25 years lifespan
+    const lifetimeSavings = yearlySavings * 25;
 
     setResults({
       monthly: monthlySavings,
