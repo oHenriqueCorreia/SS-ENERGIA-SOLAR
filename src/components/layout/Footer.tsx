@@ -13,7 +13,7 @@ export function Footer() {
               <Image src="/images/logo.jpeg" alt="SS Solar" width={220} height={80} className="h-14 md:h-16 w-auto object-contain rounded-sm" />
             </Link>
             <p className="text-slate-600 text-sm leading-relaxed">
-              Transformando a luz do sol em economia e sustentabilidade para residências e empresas em todo o Brasil.
+              O Sol nasce para todos, mas o lucro é para quem investe em energia solar.
             </p>
             <div className="flex items-center gap-4">
               <Link href="#" className="text-slate-600 hover:text-primary text-sm font-medium transition-colors">Instagram</Link>

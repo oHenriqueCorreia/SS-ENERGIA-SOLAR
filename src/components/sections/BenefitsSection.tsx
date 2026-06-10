@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 export function BenefitsSection() {
   const benefits = [
     {
-      title: "Economia de até 95%",
+      title: "Economia de até 90%",
       description: "Reduza drasticamente o valor da sua conta de luz logo no primeiro mês após a instalação.",
       icon: PiggyBank,
     },

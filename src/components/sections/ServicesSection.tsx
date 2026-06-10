@@ -10,6 +10,8 @@ export function ServicesSection() {
     "Energia Solar Industrial",
     "Sistemas On Grid",
     "Sistemas Off Grid",
+    "Sistema de Energia Rural",
+    "Sistemas Híbridos",
     "Manutenção Preventiva",
     "Limpeza de Painéis",
     "Consultoria Especializada",
@@ -41,7 +43,7 @@ export function ServicesSection() {
           </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="flex flex-wrap justify-center gap-4">
           {services.map((service, index) => (
             <motion.div
               key={service}
@@ -49,10 +51,11 @@ export function ServicesSection() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.05, duration: 0.4 }}
+              className="w-full md:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.75rem)]"
             >
-              <Card className="bg-background/50 border-white/5 hover:border-primary/30 transition-all duration-300 group">
-                <CardContent className="p-5 flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-card flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+              <Card className="bg-background/50 border-white/5 hover:border-primary/30 transition-all duration-300 group h-full">
+                <CardContent className="p-5 flex items-center gap-4 h-full">
+                  <div className="w-10 h-10 rounded-full bg-card flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
                     <CheckCircle2 className="w-5 h-5 text-primary" />
                   </div>
                   <h3 className="font-medium text-foreground/90 group-hover:text-primary transition-colors">{service}</h3>

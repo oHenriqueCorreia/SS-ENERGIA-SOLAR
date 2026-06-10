@@ -4,12 +4,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Calculator, ArrowRight, Wallet, Banknote, CalendarDays, TrendingDown } from "lucide-react";
+import { Calculator, ArrowRight, Wallet, Banknote, CalendarDays, TrendingDown, MessageCircle, X, Loader2, CheckCircle2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
+import { saveLead } from "@/app/actions/saveLead";
 
 const formSchema = z.object({
   billValue: z.string().min(1, { message: "Digite o valor da sua conta." }),
@@ -17,6 +18,9 @@ const formSchema = z.object({
 
 export function SimulatorSection() {
   const [results, setResults] = useState<{ monthly: number; yearly: number; lifetime: number } | null>(null);
+  const [showPopup, setShowPopup] = useState(false);
+  const [loadingLead, setLoadingLead] = useState(false);
+  const [leadSuccess, setLeadSuccess] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -32,7 +36,7 @@ export function SimulatorSection() {
       form.setError("billValue", { message: "O valor mínimo é R$ 50,00" });
       return;
     }
-    const monthlySavings = value * 0.95;
+    const monthlySavings = value * 0.90;
     const yearlySavings = monthlySavings * 12;
     const lifetimeSavings = yearlySavings * 25;
 
@@ -41,10 +45,40 @@ export function SimulatorSection() {
       yearly: yearlySavings,
       lifetime: lifetimeSavings,
     });
+
+    // Mostra popup após 800ms para o resultado aparecer primeiro
+    setTimeout(() => setShowPopup(true), 800);
   }
 
   const formatCurrency = (val: number) => {
     return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(val);
+  };
+
+  const handleLeadSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!results) return;
+
+    setLoadingLead(true);
+    const formData = new FormData(e.currentTarget);
+    const nome = formData.get("nome")?.toString() || "";
+    const telefone = formData.get("telefone")?.toString() || "";
+    
+    // Adicionar consumo e economia ao formData para enviar ao server action
+    formData.append("consumo", form.getValues().billValue);
+    formData.append("economia", formatCurrency(results.monthly));
+    
+    await saveLead(formData);
+    
+    setLoadingLead(false);
+    setLeadSuccess(true);
+    
+    const whatsappMsg = `Olá! Simulei minha economia no site e posso economizar ${formatCurrency(results.monthly)} por mês. Meu nome é ${nome}. Gostaria de solicitar um orçamento!`;
+    window.open(`https://wa.me/5548996136269?text=${encodeURIComponent(whatsappMsg)}`, "_blank");
+    
+    setTimeout(() => {
+      setShowPopup(false);
+      setLeadSuccess(false);
+    }, 3000);
   };
 
   return (
@@ -52,6 +86,88 @@ export function SimulatorSection() {
       {/* Glow Effects */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+
+      {/* Popup de Captura de Lead */}
+      <AnimatePresence>
+        {showPopup && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+            onClick={() => !loadingLead && setShowPopup(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.85, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.85, opacity: 0, y: 20 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative bg-card border border-white/10 rounded-3xl p-6 md:p-8 max-w-md w-full shadow-2xl overflow-y-auto max-h-[90vh]"
+            >
+              <button
+                onClick={() => setShowPopup(false)}
+                className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors"
+                disabled={loadingLead}
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 mx-auto">
+                <MessageCircle className="w-8 h-8 text-primary" />
+              </div>
+
+              <h3 className="text-2xl font-heading font-bold text-center mb-2">
+                Quer obter essa economia?
+              </h3>
+              
+              {results && (
+                <p className="text-center text-sm mb-6 leading-relaxed">
+                  Você pode economizar até <strong className="text-primary">{formatCurrency(results.monthly)}</strong> por mês. Preencha seus dados para solicitar um orçamento!
+                </p>
+              )}
+
+              <form onSubmit={handleLeadSubmit} className="space-y-4">
+                <div>
+                  <label className="text-xs font-medium text-muted-foreground mb-1 block">Nome Completo</label>
+                  <Input name="nome" required placeholder="Ex: João da Silva" className="bg-background/50 h-11" />
+                </div>
+                <div>
+                  <label className="text-xs font-medium text-muted-foreground mb-1 block">WhatsApp / Telefone</label>
+                  <Input name="telefone" required placeholder="(00) 00000-0000" className="bg-background/50 h-11" />
+                </div>
+                <div>
+                  <label className="text-xs font-medium text-muted-foreground mb-1 block">E-mail</label>
+                  <Input name="email" type="email" required placeholder="seu@email.com" className="bg-background/50 h-11" />
+                </div>
+                <div>
+                  <label className="text-xs font-medium text-muted-foreground mb-1 block">Cidade e Estado</label>
+                  <Input name="cidade" required placeholder="Ex: Içara - SC" className="bg-background/50 h-11" />
+                </div>
+
+                <Button type="submit" disabled={loadingLead || leadSuccess} size="lg" className="w-full h-12 mt-2 text-sm font-bold gap-2 bg-[#25D366] hover:bg-[#1ebe5b] text-white shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:shadow-[0_0_30px_rgba(37,211,102,0.5)] transition-all">
+                  {loadingLead ? (
+                    <Loader2 className="w-5 h-5 shrink-0 animate-spin" />
+                  ) : leadSuccess ? (
+                    <CheckCircle2 className="w-5 h-5 shrink-0" />
+                  ) : (
+                    <MessageCircle className="w-5 h-5 shrink-0" />
+                  )}
+                  {loadingLead ? "Processando..." : leadSuccess ? "Redirecionando..." : "Receber Orçamento no WhatsApp"}
+                </Button>
+              </form>
+
+              <button
+                onClick={() => setShowPopup(false)}
+                className="w-full text-center text-xs text-muted-foreground mt-4 hover:text-foreground transition-colors"
+                disabled={loadingLead}
+              >
+                Agora não, obrigado
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -170,10 +286,19 @@ export function SimulatorSection() {
                       </CardContent>
                     </Card>
                   </div>
+
+                  {/* CTA após resultado */}
+                  <button
+                    onClick={() => setShowPopup(true)}
+                    className="w-full flex items-center justify-center gap-2 h-12 rounded-xl bg-[#25D366]/10 border border-[#25D366]/30 text-[#25D366] font-semibold text-sm hover:bg-[#25D366]/20 transition-all"
+                  >
+                    <MessageCircle className="w-4 h-4 shrink-0" />
+                    Solicitar orçamento para obter essa economia
+                  </button>
                   
                   <div className="text-center">
                     <p className="text-xs text-muted-foreground/60">
-                      * Valores estimados com base em uma redução média de 95% do consumo. O resultado real depende de fatores técnicos específicos do projeto.
+                      * Valores estimados com base em uma redução média de 90% do consumo. O resultado real depende de fatores técnicos específicos do projeto.
                     </p>
                   </div>
                 </motion.div>

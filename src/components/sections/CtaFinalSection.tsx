@@ -78,7 +78,7 @@ export function CtaFinalSection() {
             
             <Button type="submit" disabled={loading} size="lg" className="w-full min-h-[4rem] mt-4 text-sm md:text-lg font-bold shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:shadow-[0_0_35px_rgba(245,158,11,0.4)] flex items-center justify-center gap-2 px-4">
               {loading ? <Loader2 className="animate-spin shrink-0 w-5 h-5" /> : <MessageCircle className="shrink-0 w-5 h-5" />}
-              <span className="leading-tight text-center">{loading ? "PROCESSANDO..." : "ENVIAR DADOS E FALAR NO WHATSAPP"}</span>
+              <span className="leading-tight text-center">{loading ? "PROCESSANDO..." : "ENVIAR DADOS"}</span>
             </Button>
             
             {success && (
