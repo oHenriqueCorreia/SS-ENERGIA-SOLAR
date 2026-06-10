@@ -1,30 +1,29 @@
 "use client";
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
+import { Card } from "@/components/ui/card";
+import { ArrowRight } from "lucide-react";
 
 export function AreasSection() {
-  const [activeTab, setActiveTab] = useState(0);
-
   const areas = [
     {
       title: "Residências",
-      description: "Reduza o custo de vida da sua família e valorize seu imóvel.",
+      description: "Reduza o custo de vida da sua família e valorize seu imóvel gerando sua própria energia limpa.",
       image: "/images/seg_residencias.jpeg",
     },
     {
       title: "Empresas e Comércio",
-      description: "Aumente a lucratividade do seu negócio cortando um dos maiores custos fixos.",
+      description: "Aumente a lucratividade do seu negócio cortando um dos seus maiores custos fixos mensais.",
       image: "/images/seg_empresas.jpeg",
     },
     {
       title: "Indústrias",
-      description: "Soluções em larga escala com alta potência para demandas intensivas.",
+      description: "Soluções robustas em larga escala com alta potência para suprir demandas intensivas de energia.",
       image: "/images/seg_industrias.jpeg",
     },
     {
       title: "Propriedades Rurais",
-      description: "Energia independente para agronegócio, irrigação e bombeamento.",
+      description: "Energia independente e confiável para potencializar o agronegócio, irrigação e bombeamento.",
       image: "/images/seg_rurais.jpeg",
     },
   ];
@@ -32,7 +31,7 @@ export function AreasSection() {
   return (
     <section className="py-24 bg-background relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="mb-16">
+        <div className="mb-16 md:flex justify-between items-end">
           <div className="max-w-2xl">
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
@@ -49,79 +48,53 @@ export function AreasSection() {
               transition={{ delay: 0.1 }}
               className="text-muted-foreground text-lg"
             >
-              Projetos dimensionados especificamente para a sua realidade de consumo e espaço disponível.
+              Projetos premium dimensionados especificamente para a sua realidade de consumo e espaço disponível.
             </motion.p>
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Tabs List */}
-          <div className="space-y-4">
-            {areas.map((area, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-                onClick={() => setActiveTab(index)}
-                className={`p-6 md:p-8 rounded-3xl cursor-pointer transition-all duration-500 border ${
-                  activeTab === index 
-                    ? "bg-card border-primary/40 shadow-[0_0_40px_rgba(245,158,11,0.1)] scale-[1.02]" 
-                    : "bg-transparent border-white/5 hover:bg-white/5 hover:border-white/10 scale-100"
-                }`}
-              >
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className={`text-2xl font-heading font-bold mb-3 transition-colors duration-300 ${
-                      activeTab === index ? "text-primary" : "text-foreground"
-                    }`}>
+        {/* Cinematic 2x2 Grid */}
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+          {areas.map((area, index) => (
+            <motion.div
+              key={area.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.6 }}
+            >
+              <Card className="relative overflow-hidden group h-[350px] md:h-[420px] cursor-pointer border-white/10 shadow-2xl flex flex-col justify-end rounded-[2rem]">
+                <Image 
+                  src={area.image}
+                  alt={area.title}
+                  fill
+                  className="object-cover transition-transform duration-1000 group-hover:scale-105 z-0"
+                  priority={index < 2}
+                />
+                
+                {/* Degradê mais alto e suave para garantir leitura perfeita */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-90" />
+                
+                <div className="relative z-20 p-8 md:p-10 flex flex-col justify-end h-full mt-auto">
+                  <div className="transform transition-transform duration-500 group-hover:-translate-y-2">
+                    <h3 className="text-3xl md:text-4xl font-heading font-bold text-white mb-3">
                       {area.title}
                     </h3>
-                    <p className={`text-base md:text-lg transition-colors duration-300 ${
-                      activeTab === index ? "text-muted-foreground" : "text-muted-foreground/50"
-                    }`}>
+                    <p className="text-gray-300 text-base md:text-lg leading-relaxed font-medium max-w-[90%]">
                       {area.description}
                     </p>
                   </div>
-                  {/* Indicador de Seleção */}
-                  <div className={`w-2 rounded-full transition-all duration-500 ${
-                    activeTab === index ? "h-16 bg-primary" : "h-0 bg-transparent"
-                  }`} />
+                  
+                  {/* Ícone sutil que aparece no hover para dar o toque interativo premium */}
+                  <div className="absolute right-8 bottom-8 opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
+                    <div className="bg-primary text-primary-foreground p-3 rounded-full">
+                      <ArrowRight size={20} />
+                    </div>
+                  </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Image Reveal */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="relative h-[400px] md:h-[600px] rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl"
-          >
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeTab}
-                initial={{ opacity: 0, scale: 1.05 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.6, ease: "easeInOut" }}
-                className="absolute inset-0"
-              >
-                <Image 
-                  src={areas[activeTab].image}
-                  alt={areas[activeTab].title}
-                  fill
-                  className="object-cover"
-                  priority
-                />
-                {/* Degradê ultra suave para dar profundidade premium */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
-              </motion.div>
-            </AnimatePresence>
-          </motion.div>
+              </Card>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
