@@ -25,9 +25,9 @@ export function SimulatorSection() {
   const [results, setResults] = useState<{ monthly: number; yearly: number; lifetime: number } | null>(null);
 
   const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema as any),
+    resolver: zodResolver(formSchema),
     defaultValues: {
-      billValue: "" as any,
+      billValue: "" as unknown as number,
     },
   });
 

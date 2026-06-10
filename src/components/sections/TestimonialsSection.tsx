@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
-import Image from "next/image";
 import {
   Carousel,
   CarouselContent,
@@ -98,15 +97,13 @@ export function TestimonialsSection() {
                           ))}
                         </div>
                         <p className="text-muted-foreground leading-relaxed mb-8 italic min-h-[100px]">
-                          "{testimonial.text}"
+                          &ldquo;{testimonial.text}&rdquo;
                         </p>
                         <div className="flex items-center gap-4">
-                          <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20">
-                            <img 
-                              src={testimonial.avatar} 
-                              alt={testimonial.name}
-                              className="w-full h-full object-cover"
-                            />
+                          <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20 bg-primary/10 flex items-center justify-center flex-shrink-0">
+                            <span className="text-sm font-bold text-primary">
+                              {testimonial.name.split(' ').map((n: string) => n[0]).join('').substring(0,2)}
+                            </span>
                           </div>
                           <div>
                             <h4 className="font-heading font-semibold text-foreground">{testimonial.name}</h4>

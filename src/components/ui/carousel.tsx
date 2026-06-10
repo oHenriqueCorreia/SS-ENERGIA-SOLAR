@@ -95,11 +95,15 @@ function Carousel({
 
   React.useEffect(() => {
     if (!api) return
-    onSelect(api)
+    // Defer initial state read so setState is inside a callback, not effect body directly
+    const timer = setTimeout(() => {
+      onSelect(api)
+    }, 0)
     api.on("reInit", onSelect)
     api.on("select", onSelect)
 
     return () => {
+      clearTimeout(timer)
       api?.off("select", onSelect)
     }
   }, [api, onSelect])
