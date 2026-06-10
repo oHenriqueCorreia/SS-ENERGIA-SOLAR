@@ -96,8 +96,8 @@ export function SimulatorSection() {
                   </p>
                 )}
               </div>
-              <Button type="submit" size="lg" className="w-full h-14 text-base font-semibold shadow-[0_0_15px_rgba(245,158,11,0.2)]">
-                Calcular Economia <ArrowRight className="ml-2 w-5 h-5" />
+              <Button type="submit" size="lg" className="w-full h-12 md:h-14 text-sm md:text-base font-semibold shadow-[0_0_15px_rgba(245,158,11,0.2)]">
+                Enviar dados <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5 shrink-0" />
               </Button>
             </form>
           </motion.div>

@@ -2,7 +2,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
-import { ArrowRight } from "lucide-react";
 
 export function AreasSection() {
   const areas = [
@@ -75,21 +74,14 @@ export function AreasSection() {
                 {/* Degradê mais alto e suave para garantir leitura perfeita */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-90" />
                 
-                <div className="relative z-20 p-8 md:p-10 flex flex-col justify-end items-center text-center h-full mt-auto">
-                  <div className="transform transition-transform duration-500 group-hover:-translate-y-2 flex flex-col items-center">
-                    <h3 className="text-3xl md:text-4xl font-heading font-bold text-white mb-3">
+                <div className="relative z-20 p-5 md:p-10 flex flex-col justify-end items-center text-center h-full mt-auto pb-6 md:pb-10">
+                  <div className="flex flex-col items-center">
+                    <h3 className="text-2xl md:text-4xl font-heading font-bold text-white mb-2 md:mb-3">
                       {area.title}
                     </h3>
-                    <p className="text-gray-300 text-base md:text-lg leading-relaxed font-medium max-w-[95%] md:max-w-[85%]">
+                    <p className="text-gray-300 text-sm md:text-lg leading-relaxed font-medium max-w-[95%] md:max-w-[85%]">
                       {area.description}
                     </p>
-                  </div>
-                  
-                  {/* Ícone sutil que aparece no hover para dar o toque interativo premium */}
-                  <div className="absolute right-8 bottom-8 opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
-                    <div className="bg-primary text-primary-foreground p-3 rounded-full">
-                      <ArrowRight size={20} />
-                    </div>
                   </div>
                 </div>
               </Card>

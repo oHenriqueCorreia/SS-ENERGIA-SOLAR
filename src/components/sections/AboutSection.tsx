@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -14,18 +15,18 @@ export function AboutSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative h-[600px] w-full rounded-3xl overflow-hidden border border-white/10"
+            className="relative h-[360px] md:h-[500px] lg:h-[600px] w-full rounded-3xl overflow-hidden border border-white/10"
           >
             <div className="absolute inset-0 bg-gradient-to-tr from-background/80 via-transparent to-transparent z-10" />
             <Image 
               src="/images/equipe.jpeg" 
               alt="Equipe SS Solar Energia" 
               fill
-              className="object-cover"
+              className="object-cover object-top"
             />
-            <div className="absolute bottom-8 left-8 z-20 bg-background/80 backdrop-blur-md p-6 rounded-2xl border border-white/10 max-w-sm">
-              <div className="text-3xl font-heading font-bold text-primary mb-2">+10 Anos</div>
-              <p className="text-sm text-foreground font-medium">De experiência transformando o mercado de energia renovável no Brasil.</p>
+            <div className="absolute bottom-4 left-4 right-4 md:bottom-8 md:left-8 md:right-auto z-20 bg-background/80 backdrop-blur-md p-4 md:p-6 rounded-2xl border border-white/10 md:max-w-sm">
+              <div className="text-2xl md:text-3xl font-heading font-bold text-primary mb-1 md:mb-2">+10 Anos</div>
+              <p className="text-xs md:text-sm text-foreground font-medium">De experiência transformando o mercado de energia renovável no Brasil.</p>
             </div>
           </motion.div>
 
@@ -57,9 +58,15 @@ export function AboutSection() {
               ))}
             </div>
 
-            <Button size="lg" className="h-14 px-8 text-base shadow-[0_0_15px_rgba(245,158,11,0.2)]">
-              Conheça Nossa História
-            </Button>
+            <Link
+              href="https://wa.me/5548996136269?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20energia%20solar."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button size="lg" className="h-14 px-8 text-base shadow-[0_0_15px_rgba(245,158,11,0.2)]">
+                Saber mais
+              </Button>
+            </Link>
           </motion.div>
         </div>
       </div>

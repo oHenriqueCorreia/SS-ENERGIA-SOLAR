@@ -1,12 +1,13 @@
 "use client";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import Image from "next/image";
 
 export function HeroSection() {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center pt-24 md:pt-20 pb-20 md:pb-28 overflow-hidden">
       {/* Background Glows */}
       <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-primary/5 rounded-full blur-[150px] pointer-events-none -translate-y-1/2 translate-x-1/3 opacity-30" />
       <div className="absolute bottom-0 left-0 w-[50vw] h-[50vw] bg-primary/5 rounded-full blur-[120px] pointer-events-none translate-y-1/3 -translate-x-1/3 opacity-30" />
@@ -36,12 +37,20 @@ export function HeroSection() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
-              <Button size="lg" className="h-14 px-8 text-base font-semibold shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:shadow-[0_0_30px_rgba(245,158,11,0.4)] transition-all">
-                Solicitar Orçamento <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button size="lg" variant="outline" className="h-14 px-8 text-base font-semibold border-white/10 hover:bg-white/5">
-                Simular Economia
-              </Button>
+              <Link
+                href="https://wa.me/5548996136269?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20energia%20solar."
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button size="lg" className="h-14 px-8 text-base font-semibold shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:shadow-[0_0_30px_rgba(245,158,11,0.4)] transition-all">
+                  Saber mais <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+              <Link href="#simulador">
+                <Button size="lg" variant="outline" className="h-14 px-8 text-base font-semibold border-white/10 hover:bg-white/5">
+                  Simular Economia
+                </Button>
+              </Link>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

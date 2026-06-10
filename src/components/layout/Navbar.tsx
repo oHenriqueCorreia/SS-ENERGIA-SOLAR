@@ -55,9 +55,15 @@ export function Navbar() {
         </nav>
 
         <div className="hidden md:block">
-          <Button className="font-semibold px-6 shadow-[0_0_15px_rgba(245,158,11,0.3)] hover:shadow-[0_0_25px_rgba(245,158,11,0.5)] transition-all">
-            Falar com Especialista
-          </Button>
+          <Link
+            href="https://wa.me/5548996136269?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20energia%20solar."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button className="font-semibold px-6 shadow-[0_0_15px_rgba(245,158,11,0.3)] hover:shadow-[0_0_25px_rgba(245,158,11,0.5)] transition-all">
+              Saber mais
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -89,7 +95,14 @@ export function Navbar() {
                   {link.name}
                 </Link>
               ))}
-              <Button className="w-[80%] max-w-[300px]">Falar com Especialista</Button>
+              <Link
+                href="https://wa.me/5548996136269?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20energia%20solar."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-[80%] max-w-[300px]"
+              >
+                <Button className="w-full">Saber mais</Button>
+              </Link>
             </div>
           </motion.div>
         )}
