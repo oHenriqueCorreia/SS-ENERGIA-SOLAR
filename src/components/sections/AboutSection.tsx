@@ -15,17 +15,17 @@ export function AboutSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative h-[360px] md:h-[500px] lg:h-[600px] w-full rounded-3xl overflow-hidden border border-white/10"
+            className="relative h-[400px] md:h-[500px] lg:h-[600px] w-full rounded-3xl overflow-hidden border border-white/10"
           >
-            <div className="absolute inset-0 bg-gradient-to-tr from-background/80 via-transparent to-transparent z-10" />
+            <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-transparent to-transparent z-10" />
             <Image 
-              src="/images/equipe.jpeg" 
+              src="/images/foto equipe nova.jpeg" 
               alt="Equipe SS Solar Energia" 
               fill
-              className="object-cover object-top"
+              className="object-cover object-center"
             />
-            <div className="absolute bottom-4 left-4 right-4 md:bottom-8 md:left-8 md:right-auto z-20 bg-background/80 backdrop-blur-md p-4 md:p-6 rounded-2xl border border-white/10 md:max-w-sm">
-              <div className="text-2xl md:text-3xl font-heading font-bold text-primary mb-1 md:mb-2">+10 Anos</div>
+            <div className="absolute top-4 left-4 right-4 md:top-8 md:left-8 md:right-auto z-20 bg-background/80 backdrop-blur-md p-4 md:p-6 rounded-2xl border border-white/10 md:max-w-sm">
+              <div className="text-2xl md:text-3xl font-heading font-bold text-primary mb-1 md:mb-2">+8 Anos</div>
               <p className="text-xs md:text-sm text-foreground font-medium">De experiência transformando o mercado de energia renovável no Brasil.</p>
             </div>
           </motion.div>
@@ -41,7 +41,7 @@ export function AboutSection() {
             </h2>
             
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-              A SS Solar Energia nasceu com o propósito de democratizar o acesso à energia limpa. Nossa equipe de engenharia altamente qualificada foca em qualidade, segurança e máxima eficiência em cada projeto entregue.
+              A SS Solar Energia nasceu com o propósito de democratizar o acesso à energia limpa. Nossa equipe de especialistas altamente qualificada foca em qualidade, segurança e máxima eficiência em cada projeto entregue.
             </p>
 
             <div className="space-y-4 mb-10">

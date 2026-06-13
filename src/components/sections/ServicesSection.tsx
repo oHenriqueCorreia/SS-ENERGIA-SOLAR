@@ -5,17 +5,11 @@ import { Card, CardContent } from "@/components/ui/card";
 
 export function ServicesSection() {
   const services = [
-    "Energia Solar Residencial",
-    "Energia Solar Comercial",
-    "Energia Solar Industrial",
-    "Sistemas On Grid",
-    "Sistemas Off Grid",
-    "Sistema de Energia Rural",
-    "Sistemas Híbridos",
-    "Manutenção Preventiva",
-    "Limpeza de Painéis",
-    "Consultoria Especializada",
-    "Homologação de Projetos"
+    "Energia solar Residencial, comercial, industrial e agro",
+    "Sistemas on-grid, off-grid e Híbridos",
+    "Limpeza de Painéis Solares",
+    "Gerenciamento e Consultoria de usinas fotovoltaicas",
+    "Homologação de Projetos Fotovoltaicos"
   ];
 
   return (

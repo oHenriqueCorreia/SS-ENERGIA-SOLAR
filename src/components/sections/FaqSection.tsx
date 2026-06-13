@@ -11,7 +11,7 @@ export function FaqSection() {
   const faqs = [
     {
       question: "Quanto posso economizar com energia solar?",
-      answer: "Você pode economizar até 95% do valor atual da sua conta de luz. A concessionária continua cobrando apenas a taxa mínima de disponibilidade e impostos obrigatórios."
+      answer: "Você pode economizar até 90% do valor atual da sua conta de luz. A concessionária continua cobrando apenas a taxa mínima de disponibilidade e impostos obrigatórios."
     },
     {
       question: "Qual o tempo de retorno do investimento (Payback)?",
@@ -23,7 +23,7 @@ export function FaqSection() {
     },
     {
       question: "Qual a vida útil dos equipamentos?",
-      answer: "Os painéis solares têm vida útil superior a 25 anos (com garantia de eficiência de 80%). Os inversores costumam durar entre 10 e 15 anos."
+      answer: "Os equipamentos possuem uma vida útil estimada de 15 a 20 anos."
     },
     {
       question: "O sistema precisa de muita manutenção?",
@@ -31,7 +31,7 @@ export function FaqSection() {
     },
     {
       question: "Posso financiar meu projeto?",
-      answer: "Sim! Existem diversas linhas de crédito específicas para energia solar (como o BV, Santander, Banco do Brasil, entre outros) onde o valor da parcela muitas vezes fica equivalente ao valor que você já paga na conta de luz."
+      answer: "Sim! Existem diversas linhas de crédito específicas para energia solar (como Sicoob, Sicredi, Banco do Brasil, Caixa, Bradesco, entre outros) onde o valor da parcela muitas vezes fica equivalente ao valor que você já paga na conta de luz."
     }
   ];
 

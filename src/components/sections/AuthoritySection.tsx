@@ -35,7 +35,7 @@ export function AuthoritySection() {
   const stats = [
     { id: 1, name: 'Projetos Realizados', value: 850, suffix: '+', prefix: '' },
     { id: 2, name: 'Clientes Atendidos', value: 1200, suffix: '+', prefix: '' },
-    { id: 3, name: 'Anos no Mercado', value: 12, suffix: '+', prefix: '' },
+    { id: 3, name: 'Anos no Mercado', value: 6, suffix: '+', prefix: '' },
     { id: 4, name: 'Economia Gerada', value: 15, suffix: ' Milhões', prefix: 'R$ ' },
   ];
 
